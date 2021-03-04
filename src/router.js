@@ -126,7 +126,9 @@ const router = new VueRouter({
 NProgress.configure({ showSpinner: false }); // NProgress Configuration
 
 router.beforeEach((to, from, next) => {
-  NProgress.start();
+  if (to.path != from.path) {
+    NProgress.start();
+  }
   next();
 });
 
